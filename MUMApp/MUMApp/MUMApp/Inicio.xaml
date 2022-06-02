@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:MUMApp.Models"
+             x:Class="MUMApp.Inicio" 
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="{DynamicResource dark_color}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.7*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0" Margin="0,20,0,0" BackgroundColor="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <Label Text="Carnes Muma" FontAttributes="Bold" TextTransform="Uppercase" TextColor="{DynamicResource light_text_color}" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        <Label Text="Una producción confiable" FontAttributes="Italic,Bold" TextTransform="Uppercase" TextColor="{DynamicResource light_text_color}" FontSize="12" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Image Source="icon_op6"></Image>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="1" Margin="20,0,20,20" BackgroundColor="{DynamicResource background_color}" CornerRadius="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.85*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Margin="0,20,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                        <Label Text="¿Que acción deseas realizar?" TextTransform="Uppercase" TextColor="{DynamicResource dark_text_color}" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </StackLayout>
+
+                    <ScrollView Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Margin="10,0">
+                            <Grid ColumnSpacing="12" RowSpacing="12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.5*"/>
+                                    <RowDefinition Height="0.5*"/>
+                                </Grid.RowDefinitions>
+
+                                <Frame Grid.Column="0" Grid.Row="0" CornerRadius="15" BorderColor="{DynamicResource dark_color}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="icon_op3" HeightRequest="70"></Image>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label x:Name="lblOpcion" Text="1" IsVisible="False"></Label>
+                                            <Label Text="CREAR TARIMAS" TextTransform="Uppercase" HorizontalTextAlignment="Center" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame Grid.Column="1" Grid.Row="0" CornerRadius="15" BorderColor="{DynamicResource dark_color}" IsVisible="false">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="icon_op4" HeightRequest="70"></Image>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label Text="Opcion 2" TextTransform="Uppercase" HorizontalTextAlignment="Center" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame Grid.Column="0" Grid.Row="1" CornerRadius="15" BorderColor="{DynamicResource dark_color}" IsVisible="false">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="icon_op4" HeightRequest="70"></Image>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label Text="Opcion 3" TextTransform="Uppercase" HorizontalTextAlignment="Center" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame Grid.Column="1" Grid.Row="1" CornerRadius="15" BorderColor="{DynamicResource dark_color}" IsVisible="false">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackLayout Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="icon_op4" HeightRequest="70"></Image>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Label Text="Opcion 4" TextTransform="Uppercase" HorizontalTextAlignment="Center" FontSize="16"></Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </Frame>
+        </Grid>        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MUMApp.Tarimas"
+             xmlns:cv="clr-namespace:MUMApp.Models"
+             NavigationPage.HasNavigationBar="false">
+
+    <StackLayout BackgroundColor="{DynamicResource background_color}">
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" BackgroundColor="{DynamicResource background_color}" VerticalOptions="FillAndExpand">
+                <Grid VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.7*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" BackgroundColor="{DynamicResource dark_color}" VerticalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                        <ImageButton x:Name="btn_back" Source="arrow_icon.png" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="TapGestureRecognizer_Tapped">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale" Value="0.5" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale" Value="0.4" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ImageButton>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" BackgroundColor="{DynamicResource light_color}">
+                        <Label x:Name="lblPedido" TextTransform="Uppercase" TextColor="{DynamicResource light_text_color}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2" BackgroundColor="{DynamicResource dark_color}" VerticalOptions="FillAndExpand">
+                        <ImageButton x:Name="btn_save" Source="save_icon.png" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale" Value="0.5" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Pressed">
+                                        <VisualState.Setters>
+                                            <Setter Property="Scale" Value="0.6" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ImageButton>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Padding="0" VerticalOptions="FillAndExpand">
+                <StackLayout Margin="20,20,20,0" MinimumHeightRequest="20" HorizontalOptions="EndAndExpand">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                            <Label TextTransform="Uppercase" Text="eliminar fila: " FontSize="12" TextColor="{DynamicResource light_color}"></Label>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                            <Switch x:Name="sw_EliminarF" Scale="0.9" Toggled="sw_EliminarF_Toggled">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="On">
+                                            <VisualState.Setters>
+                                                <Setter Property="OnColor" Value="Crimson" />
+                                                <Setter Property="ThumbColor" Value="Red" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Off">
+                                            <VisualState.Setters>
+                                                <Setter Property="OnColor" Value="Gray" />
+                                                <Setter Property="ThumbColor" Value="#1616EE" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Switch>
+                        </StackLayout>
+                    </Grid>                    
+                </StackLayout>
+                
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="20,10">
+                    <Entry x:Name="txt_barcode" Placeholder="Ingresa el codigo de barras..." PlaceholderColor="{DynamicResource placeholder_color}" FontSize="15" TextColor="{DynamicResource dark_text_color}" Keyboard="Numeric" HorizontalTextAlignment="Start" Unfocused="txt_barcode_Unfocused" Completed="txt_barcode_Completed">
+                        <Entry.Behaviors>
+                            <cv:Validador/>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+
+                <Frame x:Name="Tabla" Margin="20,0,20,20" Padding="1" HeightRequest="1000" BorderColor="{DynamicResource table_border_color}">
+                    <StackLayout>
+                        <Frame Padding="0" MinimumHeightRequest="100">
+                            <StackLayout Spacing="0">
+                                <Grid x:Name="grid" Padding="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.55*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="CODIGO" VerticalOptions="FillAndExpand" Grid.Column="1"></Label>
+                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="PRODUCTO" VerticalOptions="FillAndExpand" Grid.Column="2"></Label>
+                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="KILOS" VerticalOptions="FillAndExpand" Grid.Column="3"></Label>
+
+                                    <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                    <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                    <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+
+                        <StackLayout VerticalOptions="FillAndExpand" Padding="1">
+                            <ListView x:Name="list" ItemsSource="{Binding datagrid}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame IsClippedToBounds="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0" Padding="0">
+                                                <Grid>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
+                                                    </Grid.GestureRecognizers>
+                                                    
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.55*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="0" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                        <Label FontSize="15" Text="{Binding id}" VerticalOptions="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </ScrollView>
+                                                    
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="1" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                        <Label FontSize="14" Text="{Binding barcode}" VerticalOptions="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </ScrollView>
+
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="2" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                        <Label FontSize="13" Text="{Binding nombre}" VerticalOptions="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </ScrollView>
+
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="3" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                        <Label FontSize="14" Text="{Binding kilos}" VerticalOptions="Center">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </ScrollView>
+
+                                                    <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                                    <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                                    <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" BackgroundColor="{DynamicResource dark_color}" VerticalOptions="FillAndExpand">
+                <Grid VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.15*"/>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="0.15*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column ="0" BackgroundColor="{DynamicResource dark_color}">
+                        <Image Source="kg_icon.png" HeightRequest="30" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"></Image>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column ="1" BackgroundColor="{DynamicResource dark_color}">
+                        <StackLayout Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="KILOS: " TextColor="{DynamicResource light_text_color}"></Label>
+                            <Label x:Name="lblKilos" Text="0.00" TextColor="{DynamicResource light_text_color}"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column ="2" BackgroundColor="{DynamicResource light_color}">
+                        <StackLayout Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label Text="CAJAS: " TextColor="{DynamicResource light_text_color}" HorizontalOptions="EndAndExpand"></Label>
+                            <Label x:Name="lblCajas" Text="0" TextColor="{DynamicResource light_text_color}" HorizontalOptions="EndAndExpand"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column ="3" BackgroundColor="{DynamicResource light_color}">
+                        <Image Source="box_icon.png" HeightRequest="30" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"></Image>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

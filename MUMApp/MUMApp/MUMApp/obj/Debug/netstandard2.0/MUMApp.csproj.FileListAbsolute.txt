@@ -1,0 +1,17 @@
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\bin\Debug\netstandard2.0\MUMApp.deps.json
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\bin\Debug\netstandard2.0\MUMApp.dll
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\bin\Debug\netstandard2.0\ref\MUMApp.dll
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\bin\Debug\netstandard2.0\MUMApp.pdb
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\DTarimas.xaml.g.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\Inicio.xaml.g.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\Tarimas.xaml.g.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.AssemblyInfoInputs.cache
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.AssemblyInfo.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.csproj.CoreCompileInputs.cache
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.dll
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\ref\MUMApp.dll
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.pdb
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.csproj.AssemblyReference.cache
