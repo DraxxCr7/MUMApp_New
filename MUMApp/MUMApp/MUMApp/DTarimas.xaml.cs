@@ -27,7 +27,6 @@ namespace MUMApp
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Inicio());
-
         }
 
         public void txt_tarima_Unfocused(object sender, EventArgs e)

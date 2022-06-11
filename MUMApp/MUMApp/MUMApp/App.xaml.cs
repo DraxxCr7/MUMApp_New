@@ -7,8 +7,8 @@ namespace MUMApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new Inicio());
+            Device.SetFlags(new[] { "Expander_Experimental" });
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()

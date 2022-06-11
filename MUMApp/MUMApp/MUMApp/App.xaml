@@ -10,7 +10,7 @@
             <Color x:Key="predefined_light_color">#1616EE</Color>
             <Color x:Key="predefined_light_text_color">White</Color>
             <Color x:Key="predefined_dark_text_color">#4306E9</Color>
-            <Color x:Key="predefined_placeholder_color">SteelBlue</Color>
+            <Color x:Key="predefined_placeholder_color">White</Color>
             <Color x:Key="predefined_table_border_color">LightGray</Color>
             
             <Color x:Key="background_color">White</Color>
@@ -18,8 +18,13 @@
             <Color x:Key="light_color">#1616EE</Color>
             <Color x:Key="light_text_color">White</Color>
             <Color x:Key="dark_text_color">#4306E9</Color>
-            <Color x:Key="placeholder_color">SteelBlue</Color>
-            <Color x:Key="table_border_color">LightGray</Color>            
+            <Color x:Key="placeholder_color">#00BCFF</Color>
+            <Color x:Key="table_border_color">LightGray</Color>
+
+            <Color x:Key="gradient_color_light">cyan</Color>
+            <Color x:Key="gradient_color_dark">#4306E9</Color>
+            
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

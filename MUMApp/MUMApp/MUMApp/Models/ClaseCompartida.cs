@@ -3,7 +3,7 @@
     public class ClaseCompartida
     {
         public static string conn = "Data Source=10.0.0.50;Initial Catalog=voficina;User ID='sa';Password='Muma2022';Integrated Security=false;";
-        public static string archivo;
+        public static string archivo, empresa, sucursal, usuario;
 
         public static void resetstyles()
         {

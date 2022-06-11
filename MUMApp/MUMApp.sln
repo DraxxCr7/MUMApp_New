@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MUMApp.Android", "MUMApp\MUMApp.Android\MUMApp.Android.csproj", "{75E865FD-9CE3-4A3F-A69D-141CC0CED310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MUMApp", "MUMApp\MUMApp\MUMApp.csproj", "{E92C03BB-73FE-4E54-AC20-E93D6AB3EB45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MUMApp", "MUMApp\MUMApp\MUMApp.csproj", "{E92C03BB-73FE-4E54-AC20-E93D6AB3EB45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

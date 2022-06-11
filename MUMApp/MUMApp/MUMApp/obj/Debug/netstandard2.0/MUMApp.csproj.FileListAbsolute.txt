@@ -6,7 +6,9 @@ C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMAp
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\DTarimas.xaml.g.cs
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\Inicio.xaml.g.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\Login.xaml.g.cs
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\Tarimas.xaml.g.cs
+C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\Ubicar_Tarimas.xaml.g.cs
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.AssemblyInfoInputs.cache
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.AssemblyInfo.cs
 C:\Users\PC-Sistemas\Desktop\MUMApp\MUMApp\MUMApp\obj\Debug\netstandard2.0\MUMApp.csproj.CoreCompileInputs.cache

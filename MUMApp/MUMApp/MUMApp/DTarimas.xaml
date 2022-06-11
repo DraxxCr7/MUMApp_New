@@ -4,16 +4,26 @@
              xmlns:cv="clr-namespace:MUMApp.Models"
              x:Class="MUMApp.DTarimas" 
              NavigationPage.HasNavigationBar="false"
-             BackgroundColor="{DynamicResource light_color}">
+             BackgroundColor="{DynamicResource dark_color}">
     
     <ContentPage.Content>
         <Grid RowSpacing="0">
+            <Grid.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="{DynamicResource gradient_color_dark}"
+                          Offset="0.4" />
+                    <GradientStop Color="#4364F7"
+                          Offset="0.6" />
+                    <GradientStop Color="{DynamicResource gradient_color_light}"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackLayout Grid.Row="0" BackgroundColor="{DynamicResource light_color}" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Row="0" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
                 <Grid VerticalOptions="FillAndExpand" ColumnSpacing="0" RowSpacing="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.15*"/>
@@ -54,9 +64,11 @@
                     </Grid.ColumnDefinitions>
 
                     <StackLayout Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                        <Image Source="icon_op6" HeightRequest="200"></Image>
+                        <Label Text="CREAR TARIMA" Margin="0,20" TextTransform="Uppercase" TextColor="{DynamicResource light_text_color}" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
-                        <StackLayout Margin="0,20">
+                        <Image Source="icon_op6" HeightRequest="150"></Image>
+
+                        <StackLayout>
                             <Label Text="Ingresa el pedido" TextTransform="Uppercase" TextColor="{DynamicResource light_text_color}" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
                             <Entry x:Name="txt_tarima" Placeholder="Ej. 12345" PlaceholderColor="LightGray" FontSize="15" TextColor="{DynamicResource light_text_color}" Keyboard="Numeric" HorizontalTextAlignment="Center" Completed="txt_tarima_Completed" Unfocused="txt_tarima_Unfocused">

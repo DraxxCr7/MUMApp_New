@@ -50,7 +50,10 @@
                     </StackLayout>
 
                     <StackLayout Grid.Column="2" BackgroundColor="{DynamicResource dark_color}" VerticalOptions="FillAndExpand">
-                        <ImageButton x:Name="btn_save" Source="save_icon.png" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="btn_save_Clicked"/>
+                        </StackLayout.GestureRecognizers>
+                        <ImageButton x:Name="btn_save" Source="save_icon.png" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="btn_save_Clicked">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
@@ -108,7 +111,7 @@
                 </StackLayout>
                 
                 <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="20,10">
-                    <Entry x:Name="txt_barcode" Placeholder="Ingresa el codigo de barras..." PlaceholderColor="{DynamicResource placeholder_color}" FontSize="15" TextColor="{DynamicResource dark_text_color}" Keyboard="Numeric" HorizontalTextAlignment="Start" Unfocused="txt_barcode_Unfocused" Completed="txt_barcode_Completed">
+                    <Entry x:Name="txt_barcode" Placeholder="Ingresa el codigo de barras..." PlaceholderColor="#10A4DA" FontSize="15" TextColor="{DynamicResource dark_text_color}" Keyboard="Numeric" HorizontalTextAlignment="Start" Unfocused="txt_barcode_Unfocused" TextChanged="txt_barcode_TextChanged" Completed="txt_barcode_Completed">
                         <Entry.Behaviors>
                             <cv:Validador/>
                         </Entry.Behaviors>
@@ -117,19 +120,19 @@
 
                 <Frame x:Name="Tabla" Margin="20,0,20,20" Padding="1" HeightRequest="1000" BorderColor="{DynamicResource table_border_color}">
                     <StackLayout>
-                        <Frame Padding="0" MinimumHeightRequest="100">
+                        <Frame x:Name="Filas" Padding="0" MinimumHeightRequest="100">
                             <StackLayout Spacing="0">
                                 <Grid x:Name="grid" Padding="1">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                        <!--<ColumnDefinition Width="0.1*"></ColumnDefinition>-->
                                         <ColumnDefinition Width="0.55*"></ColumnDefinition>
                                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                                         <ColumnDefinition Width="0.2*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="CODIGO" VerticalOptions="FillAndExpand" Grid.Column="1"></Label>
-                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="PRODUCTO" VerticalOptions="FillAndExpand" Grid.Column="2"></Label>
-                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="KILOS" VerticalOptions="FillAndExpand" Grid.Column="3"></Label>
+                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="CODIGO" VerticalOptions="FillAndExpand" Grid.Column="0"></Label>
+                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="PRODUCTO" VerticalOptions="FillAndExpand" Grid.Column="1"></Label>
+                                    <Label TextColor="{DynamicResource light_color}" Margin="0" BackgroundColor="{DynamicResource background_color}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="KILOS" VerticalOptions="FillAndExpand" Grid.Column="2"></Label>
 
                                     <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
                                     <BoxView BackgroundColor="{DynamicResource dark_color}" WidthRequest="0.1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
@@ -150,13 +153,13 @@
                                                     </Grid.GestureRecognizers>
                                                     
                                                     <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                                                        <!--<ColumnDefinition Width="0.1*"></ColumnDefinition>-->
                                                         <ColumnDefinition Width="0.55*"></ColumnDefinition>
                                                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                                                         <ColumnDefinition Width="0.2*"></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
 
-                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="0" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="0" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" IsVisible="false">
                                                         <Label FontSize="15" Text="{Binding id}" VerticalOptions="Center">
                                                             <Label.GestureRecognizers>
                                                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
@@ -164,7 +167,7 @@
                                                         </Label>
                                                     </ScrollView>
                                                     
-                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="1" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="0" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                                                         <Label FontSize="14" Text="{Binding barcode}" VerticalOptions="Center">
                                                             <Label.GestureRecognizers>
                                                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
@@ -172,7 +175,7 @@
                                                         </Label>
                                                     </ScrollView>
 
-                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="2" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="1" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                                                         <Label FontSize="13" Text="{Binding nombre}" VerticalOptions="Center">
                                                             <Label.GestureRecognizers>
                                                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
@@ -180,7 +183,7 @@
                                                         </Label>
                                                     </ScrollView>
 
-                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="3" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                                    <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal" Grid.Column="2" Margin="5,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                                                         <Label FontSize="14" Text="{Binding kilos}" VerticalOptions="Center">
                                                             <Label.GestureRecognizers>
                                                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.Testcommand, Source={x:Reference list}}" CommandParameter="{Binding .}"/>
